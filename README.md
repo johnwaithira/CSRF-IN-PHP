@@ -11,7 +11,8 @@ If ``yourbank.com/transfer-fund`` implements the ``CSRF`` correctly, it generate
 
 ``` html
 <input type="hidden" 
-       name="token"        value="b3f44c1eb885409c222fdb78c125f5e7050ce4f3d15e8b15ffe51678dd3a33d3a18dd3">
+       name="token"        
+       value="b3f44c1eb885409c222fdb51678dd3a33d3a18dd3">
 
 
 ```

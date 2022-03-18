@@ -13,7 +13,7 @@
 # What is CSRF
 - ``CSRF`` stands for cross-site request forgery. It’s a kind of attack in which a hacker forces you to execute an action against a website where you’re currently logged in.
 
-`CSRF` is a o
+`CSRF` is a on
 
 
 

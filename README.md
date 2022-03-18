@@ -27,4 +27,15 @@ When the ``malicious-site.com ``tries to submit the form, the token is likely no
 
 - First, open a new folder in you local server and open it in you favourite IDE. In my case I;m using VS Code.
   
- ![project dir]( /files/open-new-folder.png "Create a new Project in local server folder").
+ ![project dir]( /files/open-new-folder.png "Create a new Project in local server folder")
+
+ - ## Create a file and name it `login.php` 
+ - ## Then, create a folder and name it `app` 
+ - Inside that folder `app`, create 2 files 
+    - CSRF.php
+    - handleform.php
+
+
+*Demo*
+
+![Files and folder](/files/files_and_folder.png "Demo of the file and folder created")

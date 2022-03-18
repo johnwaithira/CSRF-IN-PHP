@@ -133,3 +133,121 @@ which returns
 # Run the application int the browser and it should have the following output
 
 ![login.php](/files/run_the_application.png "Results after running the application")
+
+-  view page source
+
+```html
+
+<h2>Login Form With CSRF token</h2>
+<form action="./app/handleform.php" method="post">
+    <input type="text" name="username" placeholder="Username">
+    <input name='token' value='d57f0a788ac9518487c254c7e1d2272c' type= 'hidden'>
+    <input type="password" name="password" placeholder="Password">
+    <input type="submit" name="login" value="Login">
+</form>
+
+
+```
+
+- As you can see, the `<?php CSRF::create_token();?>` outputs the following input field `<input name='token' value='d57f0a788ac9518487c254c7e1d2272c' type= 'hidden'>`
+
+
+
+Now that we have added the token, Lets create fuction that will handle the submitted data
+
+
+- In `app/CSRF.php` lets add another function and call it `validate()`
+
+```php
+   public static function validate($token)
+    {
+        return isset($_SESSION['token']) && $_SESSION['token'] == $token;
+    }
+
+```
+
+- You should have the following code `app/CSRF.php`
+
+```php
+<?php
+
+session_start();
+
+class CSRF
+{
+    public static function create_token()
+    {
+        $token = md5(time());
+        $_SESSION['token'] = $token;
+
+        echo "<input name='token' value='$token' type= 'hidden'>";
+    }
+
+
+    public static function validate($token)
+    {
+        return isset($_SESSION['token']) && $_SESSION['token'] == $token;
+    }
+}
+
+```
+
+
+# Explanation
+
+
+The `validate()` function takes in one parameter ie `$token` and return true if `$_SESSION['token']` is set and `$_SESSION['token'] == $token`
+
+ If one of the contidion if false, the function return `false`
+
+We can check whether this is valid by using  a fake token
+
+You can create a new file and name it `test.php`
+
+Inside test.php, write the following code *
+```php
+<?php
+
+require_once "./app/CSRF.php";
+
+$token = "hvhvfgcgcfgcdhdjhmwr"; #this is a random text
+echo "<pre>";
+var_dump(CSRF::validate($token))
+echo "</pre>";
+
+?>
+
+```
+
+
+Now lets run this and see the output
+
+
+![Test.php](/files/check_if_valid.png "Check return value of validate fuction")
+
+- This returns to false since the token is invalid
+
+
+
+*Now lets validate the form*
+# In the `app/handleform.php` add the following code
+
+
+```php
+
+<?php
+require_once "./CSRF.php";
+
+if(isset($_POST['login']))
+{
+    if(CSRF::validate($_POST['token']))
+    {
+        echo "Continue CSRF token is valid";
+    }else 
+    {
+        exit("Failed to validate the token");
+    }
+}
+
+
+```

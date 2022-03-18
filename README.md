@@ -120,7 +120,7 @@ require_once "./app/CSRF.php";
 Since we have `CSRF.php` code, we can easily invoke the function `create_token()` by using
 
 ```php
-    <?php CSRF::create_token();?>
+ <?php CSRF::create_token();?>
 ```
 which returns 
 

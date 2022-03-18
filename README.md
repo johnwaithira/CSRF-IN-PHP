@@ -111,3 +111,8 @@ require_once "./app/CSRF.php";
 
 
 ```
+
+
+* # Explanation 
+
+# Run the application int the browser and it should have the following output

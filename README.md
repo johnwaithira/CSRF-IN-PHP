@@ -68,3 +68,27 @@ class CSRF
 }
 
 ```
+
+* # Explanation 
+
+``` php
+    session_start();
+```
+`session_start() ` function start a new session use the 
+
+
+```php
+ public static function create_token(){
+
+        #code to be executed
+ }
+
+```
+`create_token()` function returns the html form input filed
+
+* $token is generated using `md5()` and the `time()` function 
+```php
+     $token = md5(time());
+```
+
+# 

@@ -21,4 +21,10 @@ When the ```malicious-site.com``` submits the form, the ``yourbank.com/transfer-
 If the token doesn’t exist in the submitted data or it doesn’t match with the token on the server, the fund transfer form will reject the submission and return an error.
 
 When the ``malicious-site.com ``tries to submit the form, the token is likely not available or won’t match.
+#
+# How to implement CSRF token in PHP
 
+
+- First, open a new folder in you local server and open it in you favourite IDE. In my case I;m using VS Code.
+  
+ ![project dir]( /files/open-new-folder.png "Create a new Project in local server folder").

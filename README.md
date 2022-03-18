@@ -7,8 +7,7 @@
 
 1. [What is CSRF?](#what-is-csrf)
 2. [How to implement CSRF token in PHP](#how-to-implement-csrf-token-in-php)
-
-
+3. [Create a CSRF Token](#create-a-csrf-token)
 # What is CSRF
 - ``CSRF`` stands for cross-site request forgery. It’s a kind of attack in which a hacker forces you to execute an action against a website where you’re currently logged in.
 

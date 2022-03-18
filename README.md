@@ -131,3 +131,5 @@ which returns
 
 
 # Run the application int the browser and it should have the following output
+
+![login.php](/files/run_the_application.png "Results after running the application")

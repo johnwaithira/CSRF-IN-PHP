@@ -61,10 +61,6 @@ class CSRF
     }
 
 
-    public static function validate($token)
-    {
-        return isset($_SESSION['token']) && $_SESSION['token'] == $token;
-    }
 }
 
 ```

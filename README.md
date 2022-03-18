@@ -115,4 +115,19 @@ require_once "./app/CSRF.php";
 
 * # Explanation 
 
+`require_once "./app/CSRF.php";` statement takes all the code that exists in the `CSRF.php` file and copies it into `login.php`
+
+Since we have `CSRF.php` code, we can easily invoke the function `create_token()` by using
+
+```php
+    <?php CSRF::create_token();?>
+```
+which returns 
+
+```html
+<input name='token' value='8bd739595053867e1225aa8323effe73' type= 'hidden'>    
+
+```
+
+
 # Run the application int the browser and it should have the following output

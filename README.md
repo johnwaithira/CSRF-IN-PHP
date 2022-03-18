@@ -198,13 +198,11 @@ class CSRF
 
 The `validate()` function takes in one parameter ie `$token` and return true if `$_SESSION['token']` is set and `$_SESSION['token'] == $token`
 
- If one of the contidion if false, the function return `false`
+    If one of the contidion if false, the function return `false`
+    We can check whether this is valid by using  a fake token
+    You can create a new file and name it `test.php`
 
-We can check whether this is valid by using  a fake token
-
-You can create a new file and name it `test.php`
-
-Inside test.php, write the following code *
+    Inside test.php, write the following code 
 ```php
 <?php
 
@@ -251,3 +249,27 @@ if(isset($_POST['login']))
 
 
 ```
+
+
+Since we need the `validate()` function , we require the `app/CSRF.php` file.
+
+
+`isset($_POST['login']` checks whether a post request is made. If false, the code is skipped.
+
+
+We validate the token from the form input field with name `token`
+
+```html
+<input name='token' value='d57f0a788ac9518487c254c7e1d2272c' type= 'hidden'>
+
+```
+
+If the token doesn't match the already set token which is staored in the `$_SESSION['token']`, it means the request was forged nd should not be processed.
+
+Else if the request is valid, the processing continues
+
+# Conclusion
+
+
+CSRF attack is a severe threat to web applications. The vulnerability depends on how the HTTP protocol manages web requests and processes. In a CSRF attack, the attacker tricks the authenticated user into performing malicious action on a web application without the user’s knowledge. This causes a significant impact on the victim or the entire web application.
+

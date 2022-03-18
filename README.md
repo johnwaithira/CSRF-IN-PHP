@@ -6,6 +6,7 @@
 ## Table of content
 
 1. [What is CSRF?](#what-is-csrf)
+2. [How to implement CSRF token in PHP](#how-to-implement-csrf-token-in-php)
 
 
 # What is CSRF

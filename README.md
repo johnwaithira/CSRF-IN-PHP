@@ -17,8 +17,6 @@
 
 `CSRF` is a one-time token, ie once used, it expires and another one is generated
 
-
-
 For example, you visit the ``malicious-site.com`` that has a hidden form. And that form submits on page load to ``yourbank.com/transfer-fund form``.
 
 Because you’re currently logged in to the ``yourbank.com``, the request silently transfers a fund out of your bank account.
